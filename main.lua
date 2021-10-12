@@ -1,5 +1,7 @@
 function love.load()
-
+    '''
+    a function to load the love
+    '''
     window_width = 800
     window_height = 600
 
