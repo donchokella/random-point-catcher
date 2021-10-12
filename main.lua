@@ -1,9 +1,9 @@
 function love.load()
 
-    --[[
+--[[
     a function to load the love
     which is to initialize the screen
-    --]]
+--]]
 
     window_width = 800
     window_height = 600
@@ -47,12 +47,22 @@ end
 
 function love.mousepressed(x, y, button, istouch, press)
 --[[
-a function to recognize the mouse actions
+    a function to recognize the mouse actions
 --]]
 
     if button == 1 then
         score = score + 1
     end
+
+end
+
+
+function distanceBetween(x1, y1, x2, y2)
+--[[
+    a function to calculate distance between point to point
+]]
+
+    math.sqrt( (x2-x1)^2 + (y2-y1)^2 )
 
 end
 
