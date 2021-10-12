@@ -1,3 +1,4 @@
+
 function love.load()
 --[[
     a function to load the love
@@ -47,6 +48,8 @@ function love.mousepressed( x, y, button, istouch, presses )
         local mouseToTarget = distanceBetween(x, y, target.x, target.y)
         if mouseToTarget < target.radius then
             score = score + 1
+            target.x = math.random(target.radius, window_width - target.radius)
+            target.y = math.random(target.radius, window_height - target.radius)
         end
     end
 end
@@ -55,7 +58,7 @@ end
 function distanceBetween(x1, y1, x2, y2)
 --[[
     a function to calculate distance between point to point
-]]
+--]]
     return math.sqrt( (x2-x1)^2 + (y2-y1)^2 )
 end
 
