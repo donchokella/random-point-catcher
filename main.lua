@@ -1,8 +1,10 @@
 function love.load()
-    '''
+
+    --[[
     a function to load the love
     which is to initialize the screen
-    '''
+    --]]
+
     window_width = 800
     window_height = 600
 
