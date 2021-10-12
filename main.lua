@@ -7,7 +7,7 @@ function love.load()
     window_width = 800
     window_height = 600
 
-    gameFont = love.graphics.newFont(40)
+    gameFont = love.graphics.newFont(30)
 
     love.window.setMode(window_width, window_height, {
         fullscreen = false,
@@ -21,7 +21,9 @@ function love.load()
     target.radius = 30
 
     score = 0
-    timer = 0
+
+    startTime = love.timer.getTime()  -- to subtract the initial value and find the actual elapsed time
+    TotolTime = 30
 end
 
 
@@ -31,12 +33,25 @@ end
 
 
 function love.draw()
+    timePasses = math.floor(love.timer.getTime() - startTime)
+    countTime = TotolTime - timePasses
+
     love.graphics.setColor(0.9, 0.5, 0)
     love.graphics.circle("fill", target.x, target.y, target.radius)
 
     love.graphics.setColor(1,1,1)
     love.graphics.setFont(gameFont)
-    love.graphics.print(score, 0, 0)
+    love.graphics.print('Your Score is: '..score, 0, 0)
+    --love.graphics.print('Time Passes: '..timePasses , 0, 25)
+    love.graphics.print('Time Remaning: '..countTime, 500, 0)
+
+--[[ -- here, i want to stop the game ???
+
+    if countTime < 0 then
+        love.graphics.print('Your Score is:'..score, window_width/2, window_height)
+    end
+--]]
+
 end
 
 
@@ -61,5 +76,6 @@ function distanceBetween(x1, y1, x2, y2)
 --]]
     return math.sqrt( (x2-x1)^2 + (y2-y1)^2 )
 end
+
 
 
