@@ -45,4 +45,15 @@ function love.draw()
 
 end
 
+function love.mousepressed(x, y, button, istouch, press)
+--[[
+a function to recognize the mouse actions
+--]]
+
+    if button == 1 then
+        score = score + 1
+    end
+
+end
+
 
